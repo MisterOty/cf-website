@@ -12,7 +12,6 @@ let flashLight = document.querySelector('.flashlight')
 
 let toggleFlashLight = false
 let togglePossesion = false
-let toggleTitle = false
 
 const doFlashLight = () => {
     sounds.flashlight.load()
@@ -36,7 +35,7 @@ const doSeasonOpen = (div, toggle) => {
         div.style.height = `${sTextHeight.scrollHeight + 15}px`
         arrow.style.transform = 'rotate(0deg)'
     }else{
-        if(screen.width <= 610){
+        if(window.innerWidth <= 660){
             div.style.height = `${2800}px`
         }else{
             div.style.height = `${sTextHeight.scrollHeight + sHeight.scrollHeight * 2}px`
@@ -54,14 +53,21 @@ const doTitleClick = () => {
         document.querySelectorAll('.first-letter').forEach(div => {
             div.style.color = 'red';
         });
+        document.querySelectorAll('.card').forEach(element => {
+            element.style.background = `rgba(0, 0, 0, 0)`
+        })
         document.querySelector('.letters').style.fontFamily = `Arial`
         document.querySelector('main').style.backdropFilter = `brightness(1%) blur(0.05vmax)`
         document.querySelector('body').style.background = `url(files/images/possesion.png)`
         document.querySelector('body').style.backgroundSize = `100% 100%`
         document.querySelector('.jack').classList.add('possesion')
-        document.querySelector('.jack .image').style.background = `url(files/images/cast/jack-evil2.png)`
+        document.querySelector('.jack .image').style.background = `url(files/images/cast/jack-evil.png)`
         document.querySelector('.jack .image').style.backgroundSize = `100% 100%`
-        document.querySelector('.jack .card-title').textContent = `Jack`
+        document.querySelector('.mark .image').style.background = `url(files/images/cast/mark-evil.png)`
+        document.querySelector('.mark .image').style.backgroundSize = `100% 100%`
+        document.querySelector('.isaac .image').style.background = `url(files/images/cast/isaac-evil.png)`
+        document.querySelector('.isaac .image').style.backgroundSize = `100% 100%`
+        document.querySelector('.jack .card-title').textContent = `ǝʌɐɹƃpǝɹ ʞɔɐſ`
         document.querySelector('.jack .card-text').innerHTML = `Vir ca<i>t</i>prinus adest. Vir capr<i>o</i>inus adest. Vir caprinu<i>p</i>s adest. Vir caprinu<i>r</i>s adest. Vir caprinus ade<i>i</i>st. Vir caprinus a<i>g</i>dest. Vir caprinus adest. Vir caprinus adest. Vir caprinus adest. Vir caprinus adest. Vir caprinus adest. Vir capr<i>h</i>inus adest. Vir caprinus adest. Vir caprinus adest. Vir caprinus ad<i>t</i>est.`
         document.querySelector('.easter-egg').style.display = `block`
         togglePossesion = true
@@ -92,6 +98,16 @@ for(let i = 0; i < document.querySelector('.home').querySelectorAll('.season').l
 }
 
 document.addEventListener('click', (event) => {
+    if(event.target.closest('.episode')){
+        if(event.target.classList.contains('first-ep')){
+            window.open('pages/1.html', '_blank');
+        }else{
+            alert('coming soon')
+        }
+        // if(event.target.classList.contains('second-ep')){
+        //     window.open('pages/2.html', '_blank');
+        // }
+    }
     if(event.target.closest('.season-text')){
         doSeasonOpen(event.target.closest('.season'), true);
     }
@@ -122,11 +138,12 @@ window.addEventListener('mousemove', (event) => {
 
 document.addEventListener('keyup', (event) => {
     if(event.key == 'Control'){
-        document.querySelector('.name').classList.add('click-title')
+        if(!togglePossesion){
+            document.querySelector('.name').classList.add('click-title')
+        }
         toggleFlashLight = !toggleFlashLight
         doFlashLight()
     }
-    console.log(event.key)
 })
 
 document.querySelector('.name').addEventListener('click', () => {

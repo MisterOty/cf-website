@@ -24,6 +24,7 @@ body{
     background-size: 100vw 100vh;
     max-width: 100%;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* BODY */
@@ -135,19 +136,6 @@ main{
     color: red;
 }
 
-/* HEADER */
-
-header{
-    display: flex;
-    background: var(--nav);
-    justify-content: center;
-    text-align: center;
-    flex-direction: row;
-    font-size: 32px;
-    gap: 15px;
-    margin: 16px;
-}
-
 /* HOME */
 
 .home{
@@ -248,8 +236,8 @@ header{
     position: relative;
     width: 240px;
     height: 480px;
-    background: rgba(128, 128, 128, 0.75);
-    border: 3px solid rgba(0, 0, 0, 0.75);
+    background: rgba(128, 128, 128, 0.25);
+    border: 3px solid rgba(255, 255, 255, 0.05);
     border-radius: 25px;
 }
 
@@ -311,17 +299,6 @@ header{
 .youtube{
     background: url(files/images/socials/youtube.png);
     background-size: 100% 100%;
-}
-
-.gmail{
-    background: url(files/images/socials/gmail.png);
-    background-size: 100% 100%;
-}
-
-@media only screen and (max-width: 425px){
-    header{
-        flex-direction: column;
-    }
 }
 
 @media only screen and (max-width: 660px){
