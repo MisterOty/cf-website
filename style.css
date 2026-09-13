@@ -20,14 +20,32 @@
 body{
     font-family: Arial;
     color: white;
-    /* background: url(files/images/background.png); */
-    background-color: var(--background);
+    background: url(files/images/background.png);
     background-size: 100vw 100vh;
-    max-width: 100vw;
+    max-width: 100%;
     min-height: 100vh;
 }
 
 /* BODY */
+
+h1{
+    text-align: center;
+}
+
+i{
+    color: rgb(200, 0, 0);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+main{
+    backdrop-filter: blur(0.25vmax) brightness(50%);
+    z-index: 0;
+    min-height: 100vh;
+}
 
 .page-section{
     display: flex;
@@ -38,13 +56,8 @@ body{
 }
 
 .page-style{
-    background: rgba(128, 128, 128, 0.75);
-    border: 5px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 25px;
-}
-
-h1{
-    text-align: center;
 }
 
 /* WEBSITE BOX (for color flash) */
@@ -52,8 +65,43 @@ h1{
 .website-box{
     display: none;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+    z-index: 1;
+}
+
+/* FLASHLIGHT (EASTER EGG) */
+
+.flashlight{
+    display: none;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    border-radius: 10vmax;
+    backdrop-filter: brightness(1000%) saturate(200%);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.easter-egg{
+    display: none;
+    position: absolute;
+    width: 10vmax;
+    height: 5vmax;
+    color: black;
+    z-index: 2;
+    text-align: center;
+    align-content: center;
+    font-family: Typewriter;
+    top: 0%;
+    right: 0%;
+}
+
+.easter-egg:hover{
+    cursor: pointer;
 }
 
 /* TITLE */
@@ -95,8 +143,9 @@ header{
     justify-content: center;
     text-align: center;
     flex-direction: row;
-    font-size: 24px;
+    font-size: 32px;
     gap: 15px;
+    margin: 16px;
 }
 
 /* HOME */
@@ -179,6 +228,66 @@ header{
     cursor: pointer;
 }
 
+/* INFO */
+
+.info{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.info-cards{
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card{
+    position: relative;
+    width: 240px;
+    height: 480px;
+    background: rgba(128, 128, 128, 0.75);
+    border: 3px solid rgba(0, 0, 0, 0.75);
+    border-radius: 25px;
+}
+
+.image{
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.card-title{
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    margin: 5px;
+}
+
+.card-text{
+    word-wrap: break-word;
+    font-style: italic;
+    margin: 5px;
+}
+
+.mark .image{
+    background: url(files/images/cast/mark.png);
+    background-size: 100% 100%;
+}
+
+.jack .image{
+    background: url(files/images/cast/jack.png);
+    background-size: 100% 100%;
+}
+
+.isaac .image{
+    background: url(files/images/cast/isaac.png);
+    background-size: 100% 100%;
+}
+
 /* SOCIALS */
 
 .socials{
@@ -212,5 +321,13 @@ header{
 @media only screen and (max-width: 425px){
     header{
         flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 660px){
+    .episodes{
+        height: 2800px;
+        flex-direction: column;
+        gap: 5px;
     }
 }

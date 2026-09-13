@@ -1,0 +1,12 @@
+body{
+    background: black;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+img{
+    display: block;
+    width: 15vmax;
+    height: 20vmax;
+    margin: auto;
+}
